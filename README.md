@@ -1,15 +1,16 @@
 # MCP Universal DB Client
 
+> 🚀 Execute SQL queries on any database through MCP
+
 Model Context Protocol (MCP) server for connecting to and querying multiple databases (PostgreSQL, MySQL, SQLite).
 
 ## Features
 
 - 🔌 Support for multiple database types (PostgreSQL, MySQL, SQLite)
 - 🔄 Manage multiple concurrent database connections
-- � **Separate read and write operations for better security**
-- 🛡️ **SQL query validation to prevent unintended destructive operations**
-- �🚀 Execute SQL queries through MCP tools
-- 💾 Connection pooling and management
+- 🔒 Separate read and write operations for better security
+- 🛡️ SQL query validation to prevent unintended destructive operations
+- 💾 Connection pooling and managementsal DB Client
 
 ## Supported Databases
 
