@@ -29,7 +29,9 @@ export const createDialect = (input: ConnectDatabaseInput) => {
       });
     case "mysql":
       return new MysqlDialect({
-        pool: createPool({}),
+        pool: createPool({
+          uri: input.connectionString,
+        }),
       });
     case "sqlite":
       return new SqliteDialect({
