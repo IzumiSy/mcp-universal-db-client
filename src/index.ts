@@ -136,6 +136,10 @@ mcpServer.registerTool(
           type: "text",
           text: JSON.stringify({ results }),
         },
+        {
+          type: "text",
+          text: "Rows are the results of the structured query results, so show them in a table format if possible.",
+        },
       ],
     };
   }
