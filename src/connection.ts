@@ -2,7 +2,7 @@ import { PostgresDialect, MysqlDialect, SqliteDialect, Kysely } from "kysely";
 import { createPool } from "mysql2";
 import { Pool } from "pg";
 import z from "zod";
-import SQLite from "better-sqlite3";
+import Database from "libsql";
 
 export const dialectsSchema = z
   .enum(["psql", "mysql", "sqlite"])
@@ -38,7 +38,7 @@ export const createDialect = (input: ConnectDatabaseInput) => {
       });
     case "sqlite":
       return new SqliteDialect({
-        database: new SQLite(input.connectionString),
+        database: new Database(input.connectionString),
       });
     default:
       throw new Error(`Unsupported dialect: ${input.dialect}`);
