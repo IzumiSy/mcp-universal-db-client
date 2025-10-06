@@ -58,6 +58,29 @@ mcpServer.registerTool(
 );
 
 mcpServer.registerTool(
+  "disconnect_database",
+  {
+    title: "Disconnect Database",
+    description: "Disconnect from a database using connection ID",
+    inputSchema: {
+      connectionID: z.string().describe("The connection ID to disconnect"),
+    },
+  },
+  async (input) => {
+    databaseConnections.deleteConnection(input.connectionID);
+
+    return {
+      content: [
+        {
+          type: "text",
+          text: `Disconnected connection ID: ${input.connectionID}`,
+        },
+      ],
+    };
+  }
+);
+
+mcpServer.registerTool(
   "disconnect_all",
   {
     title: "Disconnect All",

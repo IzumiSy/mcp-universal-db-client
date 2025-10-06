@@ -72,6 +72,16 @@ export class DatabaseConnections {
     return this.connections.get(id);
   }
 
+  public deleteConnection(id: string) {
+    const conn = this.connections.get(id);
+    if (conn) {
+      conn.instance.destroy();
+      this.connections.delete(id);
+      return true;
+    }
+    return false;
+  }
+
   /**
    * Get all connections with their IDs, dialects, and connection times.
    */
