@@ -74,7 +74,7 @@ Disconnect all active database connections.
 
 ### Query Execution
 
-#### `query_read` - Read-Only Queries ✅
+#### `query_read` - Read-Only Queries
 
 Run SELECT and other read-only SQL queries safely.
 
