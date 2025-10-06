@@ -17,9 +17,7 @@ Model Context Protocol (MCP) server for connecting to and querying multiple data
 - **MySQL** (`mysql`)
 - **SQLite** (`sqlite`)
 
-## Usage
-
-### MCP Configuration
+## Configuration
 
 Add the server to your MCP settings configuration file:
 
@@ -34,11 +32,11 @@ Add the server to your MCP settings configuration file:
 }
 ```
 
-### Available Tools
+## Available Tools
 
-#### Database Connection Management
+### Database Connection Management
 
-##### `connect_database`
+#### `connect_database`
 
 Connect to a database using a connection string.
 
@@ -56,26 +54,26 @@ Connect to a database using a connection string.
 }
 ```
 
-##### `list_connections`
+#### `list_connections`
 
 List all active database connections.
 
 **Returns:** Array of active connections with their IDs, dialects, and connection times
 
-##### `disconnect_database`
+#### `disconnect_database`
 
 Disconnect a specific database connection.
 
 **Parameters:**
 - `connectionID`: The connection ID to disconnect
 
-##### `disconnect_all`
+#### `disconnect_all`
 
 Disconnect all active database connections.
 
-#### Query Execution
+### Query Execution
 
-##### `query_read` - Read-Only Queries ✅
+#### `query_read` - Read-Only Queries ✅
 
 Run SELECT and other read-only SQL queries safely.
 
@@ -102,7 +100,7 @@ Run SELECT and other read-only SQL queries safely.
 
 **Security:** This tool validates queries and **rejects destructive operations**, making it safe for read-only access. If a destructive query is detected, it returns an error message suggesting to use `query_write` instead.
 
-##### `query_write` - Destructive Queries ⚠️
+#### `query_write` - Destructive Queries ⚠️
 
 Run INSERT, UPDATE, DELETE and other data-modifying queries.
 
