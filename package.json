@@ -14,7 +14,8 @@
     "build": "tsdown",
     "dev": "tsdown --watch",
     "type-check": "tsc --noEmit",
-    "debug": "pnpm build && npx @modelcontextprotocol/inspector node ./dist/index.js"
+    "debug": "pnpm build && npx @modelcontextprotocol/inspector node ./dist/index.js",
+    "publish": "NODE_ENV=production pnpm build && pnpm publish --access public"
   },
   "bin": {
     "mcp-universal-db-client": "./dist/index.js"
