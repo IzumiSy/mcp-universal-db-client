@@ -19,7 +19,8 @@ mcpServer.registerTool(
     inputSchema: connectDatabaseInputSchema.shape,
   },
   async (input) => {
-    const id = databaseConnections.addConnection(input);
+    databaseConnections.addConnection(input);
+
     return {
       content: [
         {
@@ -28,7 +29,7 @@ mcpServer.registerTool(
         },
         {
           type: "text",
-          text: `Connection ID: ${id} (use this ID for future queries)`,
+          text: `Connection Name: ${input.name} (use this name for future queries)`,
         },
       ],
     };
