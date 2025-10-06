@@ -103,7 +103,7 @@ mcpServer.registerTool(
   "run_query",
   {
     title: "Run SQL Query",
-    description: "Run SQL query on the connected database",
+    description: "Run SQL queries on the connected database",
     inputSchema: {
       connectionID: z.string().describe("The connection ID"),
       query: z.string().array().describe("The SQL queries to execute"),
