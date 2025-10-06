@@ -1,4 +1,5 @@
-import { Parser } from "node-sql-parser";
+import parserPkg from "node-sql-parser";
+const { Parser } = parserPkg;
 
 export type QueryType = "read" | "write";
 
