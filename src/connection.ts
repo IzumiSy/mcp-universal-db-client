@@ -70,10 +70,16 @@ export class DatabaseConnections {
     return id;
   }
 
+  /**
+   * Retrieve a connection by its ID.
+   */
   public getConnection(id: string) {
     return this.connections.get(id);
   }
 
+  /**
+   * Delete a connection by its ID and close the connection.
+   */
   public deleteConnection(id: string) {
     const conn = this.connections.get(id);
     if (conn) {
