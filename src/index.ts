@@ -1,0 +1,123 @@
+import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
+import { z } from "zod/v3";
+import { connectDatabaseInputSchema, DatabaseConnections } from "./connection";
+import { sql } from "kysely";
+
+const mcpServer = new McpServer({
+  name: "mcp-universal-db-client",
+  version: "0.0.0",
+});
+
+const databaseConnections = new DatabaseConnections();
+
+mcpServer.registerTool(
+  "connect_database",
+  {
+    title: "Connect Database",
+    description: "Connect to a database using connection string",
+    inputSchema: connectDatabaseInputSchema.shape,
+  },
+  async (input) => {
+    const id = databaseConnections.addConnection(input);
+    return {
+      content: [
+        {
+          type: "text",
+          text: `Connected to ${input.dialect} database.`,
+        },
+        {
+          type: "text",
+          text: `Connection ID: ${id} (use this ID for future queries)`,
+        },
+      ],
+    };
+  }
+);
+
+mcpServer.registerTool(
+  "list_connections",
+  {
+    title: "List Connections",
+    description: "List all active database connections",
+  },
+  async () => {
+    const connections = databaseConnections.getAllConnections();
+
+    return {
+      content: [
+        {
+          type: "text",
+          text: JSON.stringify({
+            connections: connections,
+          }),
+        },
+      ],
+    };
+  }
+);
+
+mcpServer.registerTool(
+  "disconnect_all",
+  {
+    title: "Disconnect All",
+    description: "Disconnect all active database connections",
+  },
+  async () => {
+    await databaseConnections.deleteAllConnections();
+    return {
+      content: [
+        {
+          type: "text",
+          text: "All connections have been disconnected.",
+        },
+      ],
+    };
+  }
+);
+
+mcpServer.registerTool(
+  "run_query",
+  {
+    title: "Run SQL Query",
+    description: "Run SQL query on the connected database",
+    inputSchema: {
+      connectionID: z.string().describe("The connection ID"),
+      query: z.string().describe("The SQL query to execute"),
+    },
+  },
+  async (input) => {
+    const connection = databaseConnections.getConnection(input.connectionID);
+    if (!connection) {
+      return {
+        content: [
+          {
+            type: "text",
+            text: `No active connection found for ID: ${input.connectionID}`,
+          },
+        ],
+      };
+    }
+
+    const q = sql.raw(input.query).compile(connection.instance);
+    const results = await connection.instance.executeQuery(q);
+    return {
+      content: [
+        {
+          type: "text",
+          text: JSON.stringify({ results }),
+        },
+      ],
+    };
+  }
+);
+
+const main = async () => {
+  const transport = new StdioServerTransport();
+  await mcpServer.connect(transport);
+};
+
+main().catch((err) => {
+  console.error(err);
+  process.exit(1);
+});
