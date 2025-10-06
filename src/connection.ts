@@ -72,9 +72,15 @@ export class DatabaseConnections {
 
   /**
    * Retrieve a connection by its name.
+   *
+   * @throws when no connection is found with the given name.
    */
   public getConnection(name: string) {
-    return this.connections.get(name);
+    const conn = this.connections.get(name);
+    if (!conn) {
+      throw new Error(`No active connection found for ID: ${name}`);
+    }
+    return conn;
   }
 
   /**
