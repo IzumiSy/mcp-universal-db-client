@@ -6,7 +6,9 @@ Model Context Protocol (MCP) server for connecting to and querying multiple data
 
 - 🔌 Support for multiple database types (PostgreSQL, MySQL, SQLite)
 - 🔄 Manage multiple concurrent database connections
-- 🚀 Execute SQL queries through MCP tools
+- � **Separate read and write operations for better security**
+- 🛡️ **SQL query validation to prevent unintended destructive operations**
+- �🚀 Execute SQL queries through MCP tools
 - 💾 Connection pooling and management
 
 ## Supported Databases
@@ -34,56 +36,100 @@ Add the server to your MCP settings configuration file:
 
 ### Available Tools
 
-#### 1. `connect_database`
+#### Database Connection Management
+
+##### `connect_database`
 
 Connect to a database using a connection string.
 
 **Parameters:**
+- `name`: Unique name for this connection (used as connection ID)
 - `dialect`: Database type (`psql`, `mysql`, or `sqlite`)
 - `connectionString`: Connection string for the database
 
 **Example:**
-```typescript
+```json
 {
+  "name": "my-postgres-db",
   "dialect": "psql",
   "connectionString": "postgresql://user:password@localhost:5432/mydb"
 }
 ```
 
-**Returns:** Connection ID for use in subsequent queries
-
-#### 2. `list_connections`
+##### `list_connections`
 
 List all active database connections.
 
 **Returns:** Array of active connections with their IDs, dialects, and connection times
 
-#### 3. `run_query`
-
-Execute SQL queries on a connected database.
-
-**Parameters:**
-- `connectionID`: The connection ID returned from `connect_database`
-- `query`: Array of SQL query strings to execute
-
-**Example:**
-```typescript
-{
-  "connectionID": "abc-123-def-456",
-  "query": ["SELECT * FROM users WHERE id = 1", "SELECT COUNT(*) FROM orders"]
-}
-```
-
-#### 4. `disconnect_database`
+##### `disconnect_database`
 
 Disconnect a specific database connection.
 
 **Parameters:**
 - `connectionID`: The connection ID to disconnect
 
-#### 5. `disconnect_all`
+##### `disconnect_all`
 
 Disconnect all active database connections.
+
+#### Query Execution
+
+##### `query_read` - Read-Only Queries ✅
+
+Run SELECT and other read-only SQL queries safely.
+
+**Supported Operations:**
+- `SELECT` - Query data
+- `SHOW` - Show database information
+- `DESCRIBE` / `DESC` - Describe table structure
+- `EXPLAIN` - Explain query execution plan
+
+**Parameters:**
+- `connectionID`: The connection ID (connection name)
+- `query`: Array of SQL query strings (read-only operations only)
+
+**Example:**
+```json
+{
+  "connectionID": "my-postgres-db",
+  "query": [
+    "SELECT * FROM users WHERE id = 1",
+    "SELECT COUNT(*) FROM orders WHERE status = 'pending'"
+  ]
+}
+```
+
+**Security:** This tool validates queries and **rejects destructive operations**, making it safe for read-only access. If a destructive query is detected, it returns an error message suggesting to use `query_write` instead.
+
+##### `query_write` - Destructive Queries ⚠️
+
+Run INSERT, UPDATE, DELETE and other data-modifying queries.
+
+**Supported Operations:**
+- `INSERT` - Insert new data
+- `UPDATE` - Update existing data
+- `DELETE` - Delete data
+- `CREATE` / `ALTER` / `DROP` - DDL operations
+- `TRUNCATE` - Truncate table
+- `REPLACE` / `MERGE` - Replace/merge data
+
+**Parameters:**
+- `connectionID`: The connection ID (connection name)
+- `query`: Array of SQL query strings (any operation)
+
+**Example:**
+```json
+{
+  "connectionID": "my-postgres-db",
+  "query": [
+    "INSERT INTO users (name, email) VALUES ('John Doe', 'john@example.com')",
+    "UPDATE orders SET status = 'completed' WHERE id = 123"
+  ]
+}
+```
+
+**Security:** Use with caution as this tool can modify data. Should be restricted to authorized users only.
 
 ## License
 
