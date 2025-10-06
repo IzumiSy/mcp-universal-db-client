@@ -83,7 +83,7 @@ mcpServer.registerTool(
     description: "Run SQL query on the connected database",
     inputSchema: {
       connectionID: z.string().describe("The connection ID"),
-      query: z.string().describe("The SQL query to execute"),
+      query: z.string().array().describe("The SQL queries to execute"),
     },
   },
   async (input) => {
@@ -99,8 +99,13 @@ mcpServer.registerTool(
       };
     }
 
-    const q = sql.raw(input.query).compile(connection.instance);
-    const results = await connection.instance.executeQuery(q);
+    let results = [];
+    for (const query of input.query) {
+      const q = sql.raw(query).compile(connection.instance);
+      const result = await connection.instance.executeQuery(q);
+      results.push({ query, res: result });
+    }
+
     return {
       content: [
         {
