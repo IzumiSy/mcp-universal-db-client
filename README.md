@@ -2,6 +2,9 @@
 
 > 🚀 Execute SQL queries on any database through MCP
 
+[![NPM Version](https://img.shields.io/npm/v/%40izumisy%2Fmcp-universal-db-client)](https://www.npmjs.com/package/@izumisy/mcp-universal-db-client)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 Model Context Protocol (MCP) server for connecting to and querying multiple databases (PostgreSQL, MySQL, SQLite).
 
 ## Features
