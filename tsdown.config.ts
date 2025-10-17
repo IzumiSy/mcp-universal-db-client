@@ -1,11 +1,8 @@
-import { defineConfig, UserConfig } from "tsdown";
-
-const opts: UserConfig =
-  process.env.NODE_ENV === "production"
-    ? { minify: true }
-    : { sourcemap: true };
+import { defineConfig } from "tsdown";
 
 export default defineConfig({
   entry: ["./src/index.ts"],
-  ...opts,
+  ...(process.env.NODE_ENV === "production"
+    ? { minify: true }
+    : { sourcemap: true, hoge: "aaa" }),
 });
