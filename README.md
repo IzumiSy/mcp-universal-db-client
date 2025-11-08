@@ -7,6 +7,10 @@
 
 Model Context Protocol (MCP) server for connecting to and querying multiple databases (PostgreSQL, MySQL, SQLite).
 
+<a href="https://glama.ai/mcp/servers/@IzumiSy/mcp-universal-db-client">
+  <img width="380" height="200" src="https://glama.ai/mcp/servers/@IzumiSy/mcp-universal-db-client/badge" alt="Universal DB Client MCP server" />
+</a>
+
 ## Features
 
 - 🔌 Support for multiple database types (PostgreSQL, MySQL, SQLite)
