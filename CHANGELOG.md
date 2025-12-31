@@ -1,5 +1,13 @@
 # @izumisy/mcp-universal-db-client
 
+## 0.1.5
+
+### Patch Changes
+
+- [#21](https://github.com/IzumiSy/mcp-universal-db-client/pull/21) [`a502a07`](https://github.com/IzumiSy/mcp-universal-db-client/commit/a502a07b85152df9dfd1f6ad63b340015e91bb26) Thanks [@IzumiSy](https://github.com/IzumiSy)! - Fix dist files
+
+- [#23](https://github.com/IzumiSy/mcp-universal-db-client/pull/23) [`bfd3a45`](https://github.com/IzumiSy/mcp-universal-db-client/commit/bfd3a4520e4b9aff7ea6aab022353f7295884d95) Thanks [@IzumiSy](https://github.com/IzumiSy)! - Fix main field in package.json
+
 ## 0.1.4
 
 ### Patch Changes
