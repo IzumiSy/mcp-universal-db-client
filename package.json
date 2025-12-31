@@ -3,10 +3,10 @@
   "version": "0.1.4",
   "private": false,
   "description": "MCP Universal Database Client",
-  "homepage": "https://github.com/izumisy/mcp-universal-db-client",
+  "homepage": "https://github.com/IzumiSy/mcp-universal-db-client",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/izumisy/mcp-universal-db-client.git"
+    "url": "git+https://github.com/IzumiSy/mcp-universal-db-client.git"
   },
   "type": "module",
   "main": "index.js",
