@@ -1,8 +1,8 @@
 import { defineConfig } from "tsdown";
 
 export default defineConfig({
-  entry: ["./src/index.ts"],
+  entry: "./src/index.ts",
   ...(process.env.NODE_ENV === "production"
     ? { minify: true }
-    : { sourcemap: true, hoge: "aaa" }),
+    : { sourcemap: true }),
 });

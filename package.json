@@ -9,16 +9,16 @@
     "url": "git+https://github.com/IzumiSy/mcp-universal-db-client.git"
   },
   "type": "module",
-  "main": "index.js",
+  "main": "index.mjs",
   "scripts": {
     "build": "tsdown",
     "dev": "tsdown --watch",
     "type-check": "tsc --noEmit",
-    "debug": "pnpm build && npx @modelcontextprotocol/inspector node ./dist/index.js",
+    "debug": "pnpm build && npx @modelcontextprotocol/inspector node ./dist/index.mjs",
     "changeset:publish": "pnpm build && changeset publish"
   },
   "bin": {
-    "mcp-universal-db-client": "./dist/index.js"
+    "mcp-universal-db-client": "./dist/index.mjs"
   },
   "files": [
     "dist"
