@@ -9,7 +9,7 @@
     "url": "git+https://github.com/IzumiSy/mcp-universal-db-client.git"
   },
   "type": "module",
-  "main": "index.mjs",
+  "main": "dist/index.mjs",
   "scripts": {
     "build": "tsdown",
     "dev": "tsdown --watch",
