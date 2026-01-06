@@ -1,5 +1,13 @@
 # @izumisy/mcp-universal-db-client
 
+## 0.1.6
+
+### Patch Changes
+
+- [#26](https://github.com/IzumiSy/mcp-universal-db-client/pull/26) [`c5ef4fd`](https://github.com/IzumiSy/mcp-universal-db-client/commit/c5ef4fd8c5daa62ee95650dfebf342b1c6d06f14) Thanks [@dependabot](https://github.com/apps/dependabot)! - Updated [kysely](https://www.npmjs.com/package/kysely) (^0.28.7 -> ^0.28.9)
+
+- [#25](https://github.com/IzumiSy/mcp-universal-db-client/pull/25) [`3f94725`](https://github.com/IzumiSy/mcp-universal-db-client/commit/3f947259f90d2038a2cbd70842c8fd4bab9f0bbd) Thanks [@dependabot](https://github.com/apps/dependabot)! - Updated [@modelcontextprotocol/sdk](https://www.npmjs.com/package/@modelcontextprotocol/sdk) (^1.20.1 -> ^1.25.1)
+
 ## 0.1.5
 
 ### Patch Changes
