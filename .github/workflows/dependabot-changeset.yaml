@@ -14,6 +14,4 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v4
-      - uses: IzumiSy/simple-dependabot-changeset@main
-        with:
-          pkgName: '@izumisy/mcp-universal-db-client'
+      - uses: IzumiSy/deps2changesets@main
