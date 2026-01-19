@@ -21,8 +21,8 @@ importers:
         specifier: ^3.15.1
         version: 3.16.0
       node-sql-parser:
-        specifier: ^5.3.12
-        version: 5.3.13
+        specifier: ^5.4.0
+        version: 5.4.0
       pg:
         specifier: ^8.16.3
         version: 8.16.3
@@ -834,8 +834,8 @@ packages:
       encoding:
         optional: true
 
-  node-sql-parser@5.3.13:
-    resolution: {integrity: sha512-heyWv3lLjKHpcBDMUSR+R0DohRYZTYq+Ro3hJ4m9Ia8ccdKbL5UijIaWr2L4co+bmmFuvBVZ4v23QW2PqvBFAA==}
+  node-sql-parser@5.4.0:
+    resolution: {integrity: sha512-jVe6Z61gPcPjCElPZ6j8llB3wnqGcuQzefim1ERsqIakxnEy5JlzV7XKdO1KmacRG5TKwPc4vJTgSRQ0LfkbFw==}
     engines: {node: '>=8'}
 
   object-assign@4.1.1:
@@ -2076,7 +2076,7 @@ snapshots:
     dependencies:
       whatwg-url: 5.0.0
 
-  node-sql-parser@5.3.13:
+  node-sql-parser@5.4.0:
     dependencies:
       '@types/pegjs': 0.10.6
       big-integer: 1.6.52
