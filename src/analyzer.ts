@@ -28,7 +28,7 @@ const WRITE_OPERATIONS = new Set([
   "exec",
   "execute",
   "start",
-  "begin"
+  "begin",
 ]);
 
 /**
