@@ -1,5 +1,15 @@
 # @izumisy/mcp-universal-db-client
 
+## 0.1.8
+
+### Patch Changes
+
+- [#46](https://github.com/IzumiSy/mcp-universal-db-client/pull/46) [`f409463`](https://github.com/IzumiSy/mcp-universal-db-client/commit/f409463d22759771454c1534da167f5ac255b684) Thanks [@m10x](https://github.com/m10x)! - Improved the read-only query validation by adding more sql write operations to the WRITE_OPERATIONS set
+
+- [#42](https://github.com/IzumiSy/mcp-universal-db-client/pull/42) [`29aba15`](https://github.com/IzumiSy/mcp-universal-db-client/commit/29aba15134518202d6d4be3c7573b246bc32e86a) Thanks [@dependabot](https://github.com/apps/dependabot)! - Updated [mysql2](https://www.npmjs.com/package/mysql2) (^3.15.1 -> ^3.18.2)
+
+- [#41](https://github.com/IzumiSy/mcp-universal-db-client/pull/41) [`1767aed`](https://github.com/IzumiSy/mcp-universal-db-client/commit/1767aed6e33f51f2187e68a978bbe4278c33b051) Thanks [@dependabot](https://github.com/apps/dependabot)! - Updated [kysely](https://www.npmjs.com/package/kysely) (^0.28.10 -> ^0.28.11)
+
 ## 0.1.7
 
 ### Patch Changes
