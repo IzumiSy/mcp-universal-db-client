@@ -1,5 +1,5 @@
 import { PostgresDialect, MysqlDialect, SqliteDialect, Kysely } from "kysely";
-import { createPool } from "mysql2";
+import { createPool } from "mysql2/promise";
 import { Pool } from "pg";
 import z from "zod";
 import Database from "libsql";
