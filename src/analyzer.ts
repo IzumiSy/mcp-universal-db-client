@@ -16,6 +16,19 @@ const WRITE_OPERATIONS = new Set([
   "truncate",
   "merge",
   "rename",
+  "set",
+  "grant",
+  "revoke",
+  "begin",
+  "commit",
+  "rollback",
+  "lock",
+  "unlock",
+  "copy",
+  "exec",
+  "execute",
+  "start",
+  "begin",
 ]);
 
 /**
