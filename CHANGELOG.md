@@ -1,5 +1,11 @@
 # @izumisy/mcp-universal-db-client
 
+## 0.1.9
+
+### Patch Changes
+
+- [#51](https://github.com/IzumiSy/mcp-universal-db-client/pull/51) [`d7c6293`](https://github.com/IzumiSy/mcp-universal-db-client/commit/d7c6293119d189ac4e5c71c6e99335e489c2d8fb) Thanks [@dependabot](https://github.com/apps/dependabot)! - Updated [pg](https://www.npmjs.com/package/pg) (^8.16.3 -> ^8.20.0)
+
 ## 0.1.8
 
 ### Patch Changes
