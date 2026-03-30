@@ -38,7 +38,7 @@
     "node": "24.x"
   },
   "dependencies": {
-    "@modelcontextprotocol/sdk": "^1.27.1",
+    "@modelcontextprotocol/sdk": "^1.28.0",
     "kysely": "^0.28.11",
     "libsql": "^0.5.22",
     "mysql2": "^3.18.2",
